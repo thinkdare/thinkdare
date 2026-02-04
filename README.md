@@ -37,6 +37,6 @@ I lead **Thinkdare**, a digital playground where ideas take shape and systems sc
 ---
 
 ### 🤝 Let’s Collaborate
-The future belongs to the builders. Whether you need a cross-platform mobile app, a secure payment gateway, or a Kubernetes-orchestrated backend, let’s build it.
+The future belongs to the builders. Whether you're a founder with a vision or a developer looking to optimize a workflow, my inbox is always open.
 
-[📩 Email Me](mailto:hello@thinkdare.dev) | [💼 LinkedIn](https://linkedin.com/in/damilarehamed)
+[📩 Get In Touch](mailto:thinkdare.dev@gmail.com) | [💼 LinkedIn](https://www.linkedin.com/in/damilare-hamed-50322952) | [🌐 Portfolio](https://thinkdare.dev)
