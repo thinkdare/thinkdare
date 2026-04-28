@@ -52,12 +52,13 @@ Fullstack engineer and DevSecOps practitioner based in Lagos, Nigeria. I don't j
 - **Security is architecture, not a feature.** HMAC verification, rate limiting, and input validation are in Week 1, not Week 7.
 
 ---
-
+<!--
 ## 📊 Activity
 
 <p align="center">
 <img src="https://github-readme-stats.vercel.app/api?username=thinkdare&show_icons=true&theme=radical&rank_icon=github&include_all_commits=true" alt="Thinkdare Stats" />
 </p>
+-->
 
 ---
 
