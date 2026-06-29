@@ -1,149 +1,190 @@
-<!-- # Damilare Hamed — @thinkdare -->
+# Trust is engineered.
 
-**I build revenue-generating SaaS and production-grade platforms for real-world problems.**
-
-Fullstack engineer and DevSecOps practitioner based in Lagos, Nigeria. I architect systems that handle payments, multi-tenancy, clinical data, real-time events, and production failure modes correctly — from day one.
-
----
-
-## 🚀 What I'm Building
-
-### Live & In Development
+> *I engineer products businesses trust to handle their revenue, data, and daily operations.*
+>
+> *Sharing how to build software that lasts.*
 
 ---
 
-### 🏥 Healthcare EMR
-> *Multi-tenant Electronic Medical Records platform for hospitals, clinics, pharmacies, and laboratories across Nigeria*
+Hi, I'm **Damilare Hamed**, founder of **ThinkDare**.
 
-A production-grade EMR SaaS that enables healthcare organisations to manage patient records, clinical workflows, cross-facility referrals, compliance auditing, and billing in a single system.
+I'm a full-stack engineer and DevSecOps practitioner based in Lagos, Nigeria.
 
-**Architecture highlights:**
-- **Dual-database multi-tenancy** — every facility gets its own isolated PostgreSQL database; a breach of one tenant cannot expose another facility's records
-- **Field-level AES-256 encryption** — PII fields encrypted at rest with HMAC-SHA256 searchable hashes
-- **Post-response audit middleware** — immutable HIPAA-style audit trail written in the termination phase so audit writes never delay clinical responses
-- **Offline sync** — Flutter clients write while offline; server detects conflicts and returns structured `409 VERSION_CONFLICT` responses
-- **Clinical rank hierarchy** — capability-flag RBAC (`can_prescribe`, `can_order_labs`, `can_perform_emergency_access`) replacing flat role checks
-- **Break-glass emergency access** — always logged, notified, and escalated if not reviewed within SLA
+I don't just build applications.
 
-**Stack:** Laravel 11 · PostgreSQL 16 (dual-DB) · Redis · Laravel Sanctum (TOTP 2FA) · Flutter (iOS/Android/Web) · Stripe · Paystack · Flutterwave · Docker · GitHub Actions
+I design systems that businesses can confidently trust with their revenue, customer data, and daily operations.
+
+Here you'll find the products I'm building, the engineering decisions behind them, and the principles I rely on to build dependable software.
 
 ---
 
-### 👗 Drape
-> *Multi-tenant SaaS platform powering virtual garment try-on for fashion brands*
+# Engineering Principles
 
-Brands subscribe, upload their garment catalogue, and embed a fitting room experience directly in their storefront. Customers create measurement profiles, virtually try on garments, and receive a fit confidence score before buying.
+Technology changes.
 
-**Architecture highlights:**
-- **Three-guard auth** — separate Sanctum guards for tenant (brand), customer, and platform admin
-- **Async garment pipeline** — uploaded garments processed into try-on-ready assets via queued workers
-- **White-labelled embed** — brands embed the fitting room on any storefront via a scoped embed key
-- **Sizing analytics** — try-on trends, fit score distributions, and pipeline health per brand
-- **Multi-processor billing** — Paystack, Flutterwave, and Stripe under a unified subscription layer
+Good engineering principles don't.
 
-**Stack:** Laravel 12 · PostgreSQL 16 · Redis · Laravel Horizon · React Native (Expo) · AWS S3 · Resend · Livewire 4 · Docker · GitHub Actions · Sentry
+These principles guide every product I build.
 
----
+### Trust is an architectural decision.
 
-### 🧾 AI Invoice Chaser *(in development)*
-> *WhatsApp-native invoice automation for Nigerian and Kenyan SMBs*
+Security, reliability, auditability, and observability aren't features added before launch.
 
-Automates payment reminders via WhatsApp, generates Paystack payment links, and tracks outstanding invoices — purpose-built for African SMBs who currently chase 60–70% of invoices manually with zero audit trail.
-
-**Architecture highlights:**
-- **6-tier escalation engine** — configurable reminder sequences from 7 days before due to 14+ days overdue, with per-channel fallback (WhatsApp → SMS → email)
-- **Webhook idempotency** — `processed_webhooks` table checked before any Paystack state mutation; no double-credit on replay
-- **Multi-tenant isolation** — `BelongsToTenant` global Eloquent scope on every tenant-owned model, enforced at DB query layer
-- **Dead-letter observability** — failed reminder jobs surface to dashboard; nothing drops silently
-
-**Stack:** Fastify · PostgreSQL · BullMQ · Redis · React · Paystack · Meta Cloud API · Termii · Resend · Railway · Sentry
+They're part of the architecture from the beginning.
 
 ---
 
-### 🏫 School Fee & Report Card Portal *(planned)*
-> *Fee collection and digital report card delivery for Nigerian private schools*
+### Software should fail safely.
 
-Replaces the school accountant's spreadsheet and the printer. Fee payment via Paystack, auto-generated receipts, report card PDF delivery, and a parent portal — with per-school tenant isolation.
+Queues.
 
-**Stack:** Laravel 11 · MySQL · Livewire · Paystack · Termii · dompdf · Railway
+Retries.
 
----
+Idempotency.
 
-### 🍽️ Restaurant POS + WhatsApp Ordering *(planned)*
-> *Tablet-based POS with real-time kitchen display and WhatsApp order intake for Nigerian restaurants*
+Dead-letter queues.
 
-Connects front-of-house, kitchen, and delivery in one system. WhatsApp ordering via a structured conversation state machine tied to each restaurant's menu.
+Circuit breakers.
 
-**Stack:** Laravel 11 · MySQL · Livewire · Pusher · Meta Cloud API · Paystack · DigitalOcean
+Recovery plans.
 
----
+Failure isn't exceptional.
 
-### 💳 AI Failed Payment Recovery *(planned)*
-> *Payment-processor-agnostic recovery layer for global SaaS businesses*
+It's inevitable.
 
-Analyses Stripe failure reason codes, customer payment history, and behavioural signals to determine the optimal recovery channel and timing — targeting the 5–9% MRR SaaS businesses silently lose to failed payments.
-
-**Stack:** Node.js · Fastify · BullMQ · PostgreSQL · OpenAI · Next.js · Stripe · Twilio · Resend · Vercel
+Systems should be designed accordingly.
 
 ---
 
-## 🧱 Core Stack
+### Every important decision deserves documentation.
 
-**Backend**
-![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![Fastify](https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white)
-![PHP (Laravel)](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+The code explains **what** happened.
 
-**Frontend**
-![React.js](https://img.shields.io/badge/react-%2320232b.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.dot.js&logoColor=white)
-![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Alpine.js](https://img.shields.io/badge/Alpine.js-%238BC0D0.svg?style=for-the-badge&logo=alpinedotjs&logoColor=white)
+Documentation explains **why**.
 
-**Infrastructure & Data**
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![AWS S3](https://img.shields.io/badge/AWS_S3-FF9900?style=for-the-badge&logo=amazons3&logoColor=white)
-
-**Payments & Messaging**
-![Paystack](https://img.shields.io/badge/Paystack-011B33?style=for-the-badge&logo=Paystack&logoColor=white)
-![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
+I document trade-offs because future maintainers deserve context, not guesswork.
 
 ---
 
-## ⚙️ Engineering Principles I Ship With
+### Multi-tenancy is a security problem before it's a scaling problem.
 
-- **Webhook idempotency first.** Payment-adjacent systems deduplicate before they process. Always.
-- **Multi-tenancy at the DB layer.** Application-level scoping is not enough — global query scopes, per-tenant DB isolation, or both depending on the compliance requirement.
-- **Encryption at the field level for sensitive data.** AES-256 at rest with searchable HMAC hashes. Not optional for clinical or financial PII.
-- **Audit trails in the termination phase.** Compliance logging never delays the response the user is waiting for.
-- **Queues over synchronous processing.** If it can fail silently, it belongs in a queue with a dead-letter alert.
-- **Security is architecture, not a feature.** HMAC webhook verification, rate limiting, RBAC at the policy layer, and input validation are Week 1 requirements — not Week 7 hardening.
+Tenant isolation is never an afterthought.
+
+Whether that's separate databases, scoped queries, or infrastructure boundaries depends on the product—not convenience.
 
 ---
-<!--
-## 📊 Activity
 
-<p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=thinkdare&show_icons=true&theme=radical&rank_icon=github&include_all_commits=true" alt="Thinkdare Stats" />
-</p>
+### Simplicity scales further than cleverness.
+
+If two solutions solve the same problem,
+
+I choose the one another engineer can understand six months later.
 
 ---
--->
 
-## 🤝 Work With Me
+# Current Projects
 
-Available for freelance engagements — specifically:
+## Healthcare EMR
 
-- **Healthcare & compliance systems** — EMR, audit trails, field-level encryption, HIPAA/NDPA-aligned architecture
-- **Fintech & payment integrations** — Paystack, Stripe, Flutterwave, webhooks, reconciliation, multi-processor billing
-- **WhatsApp API automation** — Meta Cloud API, structured conversation flows, state machines
-- **SaaS architecture** — multi-tenant systems, queue-driven backends, DevSecOps, CI/CD
+**Helping hospitals trust software with patient care.**
 
-If you're a founder building in Africa or a team that needs senior fullstack and DevSecOps execution, let's talk.
+A multi-tenant Electronic Medical Records platform designed for hospitals, clinics, pharmacies, and laboratories.
 
-[📩 Email](mailto:thinkdare.dev@gmail.com) · [𝕏 @thinkdare_dev](https://x.com/thinkdare_dev) · [💼 LinkedIn](https://www.linkedin.com/in/damilare-hamed-50322952) · [🌐 thinkdare.dev](https://thinkdare.dev)
+Some engineering decisions behind the platform include:
+
+* Every healthcare organisation receives its own isolated PostgreSQL database.
+* Sensitive patient information is encrypted at the field level.
+* Every significant action is recorded in an immutable audit trail.
+* Clinical workflows continue to function during temporary connectivity loss.
+* Emergency access is always visible, reviewed, and accountable.
+
+The interesting part isn't the technology.
+
+It's why each decision exists.
+
+---
+
+## Drape
+
+**Helping fashion brands reduce returns before they happen.**
+
+A SaaS platform enabling brands to offer virtual garment fitting inside their own storefronts.
+
+Engineering decisions include:
+
+* Separate authentication boundaries for brands, customers, and platform administrators.
+* Asynchronous garment processing so uploads never block the user experience.
+* White-labelled embeds that remain securely scoped to each tenant.
+* Multi-provider billing architecture supporting Stripe, Paystack, and Flutterwave.
+
+---
+
+## AI Invoice Chaser
+
+**Helping SMBs recover revenue without chasing invoices manually.**
+
+A WhatsApp-native platform automating invoice reminders and payment collection.
+
+Key decisions include:
+
+* Idempotent webhook processing to eliminate duplicate payment events.
+* Queue-first reminder delivery with dead-letter monitoring.
+* Tenant isolation enforced at the database layer.
+* Escalation workflows designed around real business behaviour instead of fixed schedules.
+
+---
+
+# What You'll Find Here
+
+This GitHub isn't just a collection of repositories.
+
+It's a library of engineering thinking.
+
+Over time I'll be publishing:
+
+* Engineering Decision Records
+* Architecture notes
+* Production playbooks
+* Infrastructure patterns
+* Deployment workflows
+* Documentation
+* Open-source tools
+* Experiments
+
+Everything is documented so future engineers can understand not only what was built—but why.
+
+---
+
+# Technology
+
+The tools change.
+
+The principles don't.
+
+Most of my work today is built with technologies like Laravel, Node.js, PostgreSQL, Redis, Docker, Flutter, React, AWS, and GitHub Actions—but the technology is always chosen to serve the product, never the other way around.
+
+---
+
+# Work With Me
+
+I work with founders and teams building products that cannot afford failure.
+
+Whether you're building healthcare software, fintech infrastructure, internal operations platforms, or the next SaaS product, I help engineer systems businesses can trust with their revenue, data, and daily operations.
+
+If that sounds like what you're building, I'd love to talk.
+
+---
+
+## Find me elsewhere
+
+🌐 https://thinkdare.dev
+
+𝕏 https://x.com/buildthinkdare
+
+💼 https://www.linkedin.com/in/damilare-hamed-50322952
+
+📧 [thinkdare.dev@gmail.com](mailto:thinkdare.dev@gmail.com)
+
+---
+
+> **ThinkDare documents the decisions that make trustworthy software possible.**
